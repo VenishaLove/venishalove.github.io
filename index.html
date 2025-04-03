@@ -62,23 +62,20 @@
 </div>
 
   </section>
-
+            <section id="portfolio" class="py-16">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">My Portfolio</h2>
+    
        <div class="bg-white p-6 rounded-lg shadow-md">
   <h3 class="text-2xl font-bold mb-4">Chicago Bank-Owned Vacant Properties Analysis</h3>
 
   <div class="flex flex-col md:flex-row gap-6">
-    <!-- Image -->
-    <div class="md:w-1/2">
-      <img src="images/chi_bankowned_dashboard_photo.png" alt="Dashboard Photo" class="rounded shadow-md w-full h-auto">
-    </div>
-
+    
     <!-- Query Text -->
-    <div class="md:w-1/2 overflow-auto">
-      <p class="text-gray-700 mb-4">
-        This project analyzes vacant properties in Chicago owned by banks and financial institutions, using structured SQL queries to derive insights from violation and fee-related datasets. The analysis uncovers patterns in property ownership, violation frequency, and financial obligations associated with neglect.
-      </p>
+    <div class="md:w-1/2 h-[500px] overflow-y-scroll bg-gray-100 p-4 rounded text-sm text-gray-700 font-mono">
+<pre>
+USE Chicago_Bank_Owned_RE_Vacant;
 
-      <pre class="text-sm text-gray-500 font-mono bg-gray-100 p-4 rounded overflow-x-auto">
 SELECT *
 FROM cbo_vacant_paid_due;
 
@@ -92,7 +89,9 @@ SET last_hearing_date = str_to_date('last_hearing_date','%y-%m-%d');
 SELECT *
 FROM cbo_vacant_violations;
 
--- Most banks have fewer distinct property_address than total, due to multiple violations per address
+-- Shows that most entities/banks have fewer distinct property_address(es) than total property_address count 
+-- This suggest that the adresseses in the table are counted multiple times for the same bank
+-- This is due to multiple violations per address
 SELECT entity, COUNT(property_address), COUNT(DISTINCT property_address)
 FROM cbo_vacant_paid_due
 GROUP BY entity
@@ -100,24 +99,66 @@ ORDER BY 2 DESC;
 
 SELECT DISTINCT entity, SUM(total_paid) AS fees_paid, SUM(current_amount_due) AS fees_due
 FROM cbo_vacant_paid_due
-GROUP BY entity
+group by 1
 ORDER BY 2 DESC;
 
--- Filtered banks with >100 vacant properties
+-- Most banks are logged multiple times under different spellings/abbreviations e.g Bank of America, & Bank of America Na or N A
+-- I will filter out entities with greater than 100 vacant properties
 SELECT entity, COUNT(property_address), COUNT(DISTINCT property_address)
 FROM cbo_vacant_paid_due
 GROUP BY entity
 ORDER BY 2 DESC
 LIMIT 10;
 
--- Running totals by bank
-SELECT entity, COUNT(property_address) OVER(ORDER BY entity) AS total_boa_homes
+-- used the over window function to create a column that has a running total of homes for each bank
+SELECT entity, COUNT(property_address)
+OVER(ORDER BY entity
+) AS total_boa_homes
 FROM cbo_vacant_paid_due
-WHERE entity LIKE '%bank_of_america%' AND issued_date >= '2017/01/01'
+WHERE entity LIKE '%bank_of_america%' AND issued_date >= '2017/01/01' 
 ORDER BY total_boa_homes DESC;
 
--- Repeat similar queries for other banks...
-      </pre>
+SELECT entity, COUNT(property_address)
+OVER(ORDER BY entity
+) AS total_us_bank_homes
+FROM cbo_vacant_paid_due
+WHERE entity LIKE '%us bank%' AND issued_date >= '2017/01/01' 
+ORDER BY total_us_bank_homes DESC;
+
+SELECT entity, COUNT(property_address)
+OVER(ORDER BY entity
+) AS total_deutsche_bank_homes
+FROM cbo_vacant_paid_due
+WHERE entity LIKE '%deut% bank%' AND issued_date >= '2017/01/01' 
+ORDER BY total_deutsche_bank_homes DESC;
+
+SELECT entity, COUNT(property_address)
+OVER(ORDER BY entity
+) AS total_chase_bank_homes
+FROM cbo_vacant_paid_due
+WHERE entity LIKE '%chase bank%' AND issued_date >= '2017/01/01' 
+ORDER BY total_chase_bank_homes DESC;
+
+SELECT entity, COUNT(property_address)
+OVER(ORDER BY entity
+) AS total_bank_of_ny_mellon_homes 
+FROM cbo_vacant_paid_due
+WHERE entity LIKE '%bank of % mellon%' AND issued_date >= '2017/01/01' 
+ORDER BY total_bank_of_ny_mellon_homes DESC;
+
+SELECT entity, COUNT(property_address)
+OVER(ORDER BY entity
+) AS total_citi_bank_homes 
+FROM cbo_vacant_paid_due
+WHERE entity LIKE '%citi %' AND issued_date >= '2017/01/01' 
+ORDER BY total_citi_bank_homes DESC;
+
+</pre>
+    </div>
+
+    <!-- Image -->
+    <div class="md:w-1/2 h-[500px] flex items-center justify-center">
+      <img src="images/chi_bankowned_dashboard_photo.png" alt="Dashboard Photo" class="rounded shadow-md max-h-full object-contain">
     </div>
   </div>
 </div>
