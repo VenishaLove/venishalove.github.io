@@ -63,6 +63,24 @@
 
   </section>
 
+        <div class="bg-white p-6 rounded-lg shadow-md text-left">
+  <h3 class="text-2xl font-bold mb-2">Chicago Bank-Owned Vacant Properties Analysis</h3>
+  <img src="images/attendance-dashboard.png" alt="Attendance Dashboard" class="w-full rounded mb-4">
+  
+  <p class="text-gray-700 mb-2">
+    This dashboard highlights patterns in chronic absenteeism across schools and subgroups. Built using Google Data Studio and powered by BigQuery.
+  </p>
+  
+  <p class="text-sm text-gray-500 font-mono bg-gray-100 p-4 rounded">
+    SELECT student_id, school_name, COUNT(*) AS absences<br>
+    FROM attendance_data<br>
+    WHERE status = 'Absent'<br>
+    GROUP BY student_id, school_name<br>
+    HAVING absences &gt;= 10
+  </p>
+</div>
+
+
   <!-- AppSheet Services Section -->
   <section id="appsheet-services" class="py-16 bg-white">
     <div class="container mx-auto text-center">
