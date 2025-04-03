@@ -62,18 +62,18 @@
 </div>
 
   </section>
-            <section id="portfolio" class="py-16">
+           <section id="portfolio" class="py-16">
   <div class="container mx-auto">
     <h2 class="text-3xl font-bold text-center mb-8">My Portfolio</h2>
-    
-       <div class="bg-white p-6 rounded-lg shadow-md">
-  <h3 class="text-2xl font-bold mb-4">Chicago Bank-Owned Vacant Properties Analysis</h3>
 
-  <div class="flex flex-col md:flex-row gap-6">
-    
-    <!-- Query Text -->
-    <div class="md:w-1/2 h-[500px] overflow-y-scroll bg-gray-100 p-4 rounded text-sm text-gray-700 font-mono">
-<pre>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-2xl font-bold mb-4">Chicago Bank-Owned Vacant Properties Analysis</h3>
+
+      <div class="flex flex-col md:flex-row gap-6">
+        
+        <!-- Query Text -->
+        <div class="md:w-1/2 max-h-[600px] overflow-auto bg-gray-100 p-4 rounded text-sm text-gray-700 font-mono">
+<pre class="whitespace-pre">
 USE Chicago_Bank_Owned_RE_Vacant;
 
 SELECT *
@@ -154,14 +154,17 @@ WHERE entity LIKE '%citi %' AND issued_date >= '2017/01/01'
 ORDER BY total_citi_bank_homes DESC;
 
 </pre>
-    </div>
+        </div>
 
-    <!-- Image -->
-    <div class="md:w-1/2 h-[500px] flex items-center justify-center">
-      <img src="images/chi_bankowned_dashboard_photo.png" alt="Dashboard Photo" class="rounded shadow-md max-h-full object-contain">
+        <!-- Image -->
+        <div class="md:w-1/2 max-h-[600px] flex items-center justify-center">
+          <img src="images/chi_bankowned_dashboard_photo.png" alt="Dashboard Photo" class="rounded shadow-md max-h-full object-contain">
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
 
 
   <!-- AppSheet Services Section -->
