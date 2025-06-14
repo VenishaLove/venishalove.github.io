@@ -60,20 +60,40 @@
     Custom dashboards to monitor key performance indicators in real-time.
   </p>
 </div>
-<section id="data-report" class="py-12 px-4 bg-white">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-2xl font-bold mb-6">Interactive Data Report</h2>
-    <div style="position: relative; width: 100%; padding-top: 74%;">
-      <iframe 
-        src="https://lookerstudio.google.com/embed/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF" 
-        frameborder="0" 
-        allowfullscreen 
-        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;">
-      </iframe>
-    </div>
+<section class="py-12 px-4 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <button onclick="openModal()" class="bg-blue-600 text-white px-4 py-2 rounded">
+      View Data Report
+    </button>
   </div>
 </section>
+
+<!-- Modal -->
+<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+  <div class="bg-white rounded-lg overflow-auto w-full max-w-[95%] h-[90%] p-4 relative">
+    <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl">&times;</button>
+    <iframe 
+      src="https://lookerstudio.google.com/embed/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF" 
+      frameborder="0" 
+      allowfullscreen 
+      style="width: 100%; height: 100%; border: 0;"
+      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById("modal").classList.remove("hidden");
+    document.getElementById("modal").classList.add("flex");
+  }
+
+  function closeModal() {
+    document.getElementById("modal").classList.remove("flex");
+    document.getElementById("modal").classList.add("hidden");
+  }
+</script>
+
 
 
 <!--  </section>
