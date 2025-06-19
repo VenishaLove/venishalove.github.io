@@ -126,14 +126,16 @@
     </div>
   </footer>
 <script type="text/javascript">
+  window.CRISP_READY_TRIGGER = function() {
+    $crisp.push(["do", "chat:open"]);
+  };
   window.$crisp = [];
   window.CRISP_WEBSITE_ID = "2d076318-015d-442b-a933-2fbf3fc39886";
   window.$crisp.push(["do", "chat:show"]);
   window.$crisp.push(["set", "user:availability", ["Mo-Fr 09:00:00-17:00:00"]]);
   window.$crisp.push(["set", "user:nickname", ["Venisha"]]);
   window.$crisp.push(["set", "user:email", ["venishalove21@gmail.com"]]);
-  window.$crisp.push(["set", "user:phone", ["+1-773-641-8593"]]);
-  window.$crisp.push(["set", "session:segments", [["portfolio-site"]]]);
+    window.$crisp.push(["set", "session:segments", [["portfolio-site"]]]);
   window.$crisp.push(["on", "message:received", function(msg) {
     console.log("New message from visitor:", msg.content);
   }]);
