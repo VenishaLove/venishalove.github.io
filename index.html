@@ -10,21 +10,21 @@
       console.log(`Portfolio Report Clicked: ${label}`);
       window.open(url, '_blank');
     }
-  window.$crisp.push(["set", "message:text", ["Hi! You can schedule a meeting with me directly here: https://calendly.com/venishalove"]]);
-</script>
+  </script>
 </head>
 <body class="bg-gray-50 text-gray-900">
-  
-        <a href="#about" class="text-gray-600 hover:text-blue-500 mx-2">About</a>
-        <a href="#portfolio" class="text-gray-600 hover:text-blue-500 mx-2">Portfolio</a>
-        <a href="#services" class="text-gray-600 hover:text-blue-500 mx-2">Services</a>
-        <a href="#contact" class="text-gray-600 hover:text-blue-500 mx-2">Contact</a>
+
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div>
+        <a href="#about" class="text-gray-600 hover:text-blue-500 mx-2 no-underline">About</a>
+        <a href="#portfolio" class="text-gray-600 hover:text-blue-500 mx-2 no-underline">Portfolio</a>
+        <a href="#services" class="text-gray-600 hover:text-blue-500 mx-2 no-underline">Services</a>
+        <a href="#contact" class="text-gray-600 hover:text-blue-500 mx-2 no-underline">Contact</a>
       </div>
     </div>
   </nav>
-  
 
-$1
   <section class="bg-blue-600 text-white py-20">
     <div class="container mx-auto text-center">
       <h1 class="text-4xl font-bold">Contracted Data Analysis & Dashboard Development for Businesses</h1>
@@ -37,7 +37,7 @@ $1
     </div>
   </section>
 
-  <!-- Portfolio Section with Thumbnails -->
+  <!-- Portfolio Section -->
   <section id="portfolio" class="py-12 px-4 bg-white">
     <div class="max-w-7xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-10">Portfolio Reports</h2>
@@ -45,30 +45,28 @@ $1
         <div class="bg-white shadow p-4 rounded">
           <h3 class="text-lg font-semibold">Washington Electric Vehicle Population</h3>
           <p class="text-xs text-gray-500 mb-4">Data Sourced From: data.wa.gov</p>
-          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF', 'Washington State Homelessness')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF', 'Washington Electric Vehicle Population')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
-          <h3 class="text-lg font-semibold">Monthly Food Category Sales </h3>
+          <h3 class="text-lg font-semibold">Monthly Food Category Sales</h3>
           <p class="text-xs text-gray-500 mb-4">Data Sourced From: mavenanalytics.io</p>
-          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_b4xjtd5q3c', 'Sales Performance Dashboard')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_b4xjtd5q3c', 'Monthly Food Category Sales')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
           <h3 class="text-lg font-semibold">Revenue By Individual Food Items Sold</h3>
           <p class="text-xs text-gray-500 mb-4">Data Sourced From: mavenanalytics.io</p>
-          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/dba9168f-68da-46ab-bf42-c328e18cdd25/page/p_56g4z27cfc', 'Airbnb Metrics Overview')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/dba9168f-68da-46ab-bf42-c328e18cdd25/page/p_56g4z27cfc', 'Revenue By Individual Food Items Sold')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
           <h3 class="text-lg font-semibold">Number Of Individual Items Sold Each Month</h3>
           <p class="text-xs text-gray-500 mb-4">Data Sourced From: mavenanalytics.io</p>
-          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/4c3580de-7bee-4147-bc5a-52fb71020036/page/p_6gf2g6q2lc', 'Chicago Crime Dashboard')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/4c3580de-7bee-4147-bc5a-52fb71020036/page/p_6gf2g6q2lc', 'Number Of Individual Items Sold Each Month')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
       </div>
-      <a href="#portfolio" class="mt-8 inline-block text-blue-600 underline">
     </div>
   </section>
 
-  
-
+  <!-- Services Section -->
   <section id="services" class="py-16 bg-gray-100">
     <div class="container mx-auto text-center">
       <h2 class="text-3xl font-bold">BI Services</h2>
@@ -117,46 +115,52 @@ $1
         <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
           Send Message
         </button>
-      
+      </form>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto text-center">
+      <img src="https://media.licdn.com/dms/image/D4E03AQEVjeMXEQ_iWg/profile-displayphoto-shrink_800_800/0/1679074691243?e=1723075200&v=beta&t=JTbscQpHTVO2MfKxK5YzTQGn07VHzrS4HEK26F08YYg" alt="Venisha LinkedIn Profile Photo" class="mx-auto mb-6 rounded-full shadow-lg w-40 h-40 object-cover">
+      <h2 class="text-3xl font-bold mb-4">About Me</h2>
+      <p class="text-lg max-w-3xl mx-auto text-gray-700">
+        I'm Venisha, a Chicago-based data analyst with experience in public sector analytics and a deep passion for helping organizations make smarter, data-driven decisions. I specialize in creating insightful dashboards, streamlining processes with no-code tools like AppSheet, and building data solutions tailored to your needs. When I'm not building dashboards or exploring metrics, I'm probably listening to philosophy podcasts or deep diving into video essays.
+      </p>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-8">
     <div class="container mx-auto text-center">
       <p>&copy; 2025 Venisha Love. All rights reserved.</p>
     </div>
-  $1
-    <img src="https://media.licdn.com/dms/image/D4E03AQEVjeMXEQ_iWg/profile-displayphoto-shrink_800_800/0/1679074691243?e=1723075200&v=beta&t=JTbscQpHTVO2MfKxK5YzTQGn07VHzrS4HEK26F08YYg" alt="Venisha LinkedIn Profile Photo" class="mx-auto mb-6 rounded-full shadow-lg w-40 h-40 object-cover">
-    <h2 class="text-3xl font-bold mb-4">About Me</h2>
-    <p class="text-lg max-w-3xl mx-auto text-gray-700">
-      I'm Venisha, a Chicago-based data analyst with experience in public sector analytics and a deep passion for helping organizations make smarter, data-driven decisions. I specialize in creating insightful dashboards, streamlining processes with no-code tools like AppSheet, and building data solutions tailored to your needs. When I'm not building dashboards or exploring metrics, I'm probably listening to philosophy podcasts or deep diving into video essays.
-    </p>
-  </div>
-</section>
+  </footer>
 
-$1
-<script type="text/javascript">
-  window.CRISP_READY_TRIGGER = function() {
-    $crisp.push(["do", "chat:open"]);
-  };
-  window.$crisp = [];
-  window.CRISP_WEBSITE_ID = "2d076318-015d-442b-a933-2fbf3fc39886";
-  window.$crisp.push(["do", "chat:show"]);
-  window.$crisp.push(["set", "user:availability", ["Mo-Fr 09:00:00-17:00:00"]]);
-  window.$crisp.push(["set", "user:nickname", ["Venisha"]]);
-  window.$crisp.push(["set", "user:email", ["venishalove21@gmail.com"]]);
+  <!-- Crisp Chatbot -->
+  <script type="text/javascript">
+    window.$crisp = [];
+    window.CRISP_READY_TRIGGER = function() {
+      $crisp.push(["do", "chat:open"]);
+    };
+    window.CRISP_WEBSITE_ID = "2d076318-015d-442b-a933-2fbf3fc39886";
+    window.$crisp.push(["do", "chat:show"]);
+    window.$crisp.push(["set", "user:availability", ["Mo-Fr 09:00:00-17:00:00"]]);
+    window.$crisp.push(["set", "user:nickname", ["Venisha"]]);
+    window.$crisp.push(["set", "user:email", ["venishalove21@gmail.com"]]);
     window.$crisp.push(["set", "session:segments", [["portfolio-site"]]]);
-  window.$crisp.push(["on", "message:received", function(msg) {
-    console.log("New message from visitor:", msg.content);
-  }]);
-  (function() {
-    d = document;
-    s = d.createElement("script");
-    s.src = "https://client.crisp.chat/l.js";
-    s.async = 1;
-    d.getElementsByTagName("head")[0].appendChild(s);
-  })();
-</script>
+    window.$crisp.push(["set", "message:text", ["Hi! You can schedule a meeting with me directly here: https://calendly.com/venishalove"]]);
+    window.$crisp.push(["on", "message:received", function(msg) {
+      console.log("New message from visitor:", msg.content);
+    }]);
+    (function() {
+      d = document;
+      s = d.createElement("script");
+      s.src = "https://client.crisp.chat/l.js";
+      s.async = 1;
+      d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+  </script>
+
 </body>
 </html>
-
-    
