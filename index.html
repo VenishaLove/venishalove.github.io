@@ -10,7 +10,8 @@
       console.log(`Portfolio Report Clicked: ${label}`);
       window.open(url, '_blank');
     }
-  </script>
+  window.$crisp.push(["set", "message:text", ["Hi! You can schedule a meeting with me directly here: https://calendly.com/venishalove"]]);
+</script>
 </head>
 <body class="bg-gray-50 text-gray-900">
   <!-- Navbar -->
@@ -43,22 +44,22 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white shadow p-4 rounded">
           <h3 class="text-lg font-semibold">Washington Electric Vehicle Population</h3>
-          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <p class="text-xs text-gray-500 mb-4">Data Sourced From: data.wa.gov</p>
           <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF', 'Washington State Homelessness')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
           <h3 class="text-lg font-semibold">Monthly Food Category Sales </h3>
-          <p class="text-xs text-gray-500 mb-4">Reference: mavenanalytics.io</p>
+          <p class="text-xs text-gray-500 mb-4">Data Sourced From: mavenanalytics.io</p>
           <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_b4xjtd5q3c', 'Sales Performance Dashboard')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
           <h3 class="text-lg font-semibold">Revenue By Individual Food Items Sold</h3>
-          <p class="text-xs text-gray-500 mb-4">Reference: mavenanalytics.io</p>
+          <p class="text-xs text-gray-500 mb-4">Data Sourced From: mavenanalytics.io</p>
           <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/dba9168f-68da-46ab-bf42-c328e18cdd25/page/p_56g4z27cfc', 'Airbnb Metrics Overview')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
           <h3 class="text-lg font-semibold">Number Of Individual Items Sold Each Month</h3>
-          <p class="text-xs text-gray-500 mb-4">Reference: mavenanalytics.io</p>
+          <p class="text-xs text-gray-500 mb-4">Data Sourced From: mavenanalytics.io</p>
           <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/4c3580de-7bee-4147-bc5a-52fb71020036/page/p_6gf2g6q2lc', 'Chicago Crime Dashboard')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
       </div>
@@ -99,7 +100,7 @@
   <section id="contact" class="py-16 bg-gray-100">
     <div class="container mx-auto text-center">
       <h2 class="text-3xl font-bold">Contact</h2>
-      <p class="mt-4 text-lg">Let's discuss how I can help you unlock your data's potential.</p>
+      <p class="mt-4 text-lg">Let's discuss how I can help you unlock your data's potential. No fees or obligations—just reach out.</p>
       <form action="https://formspree.io/f/xjkyaerp" method="POST" class="mt-8 max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <div class="mb-4">
           <label for="name" class="block text-left font-semibold mb-1">Name</label>
@@ -116,9 +117,7 @@
         <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
           Send Message
         </button>
-      </form>
-    </div>
-  </section>
+      
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-8">
@@ -126,5 +125,25 @@
       <p>&copy; 2025 Venisha Love. All rights reserved.</p>
     </div>
   </footer>
+<script type="text/javascript">
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "2d076318-015d-442b-a933-2fbf3fc39886";
+  window.$crisp.push(["do", "chat:show"]);
+  window.$crisp.push(["set", "user:availability", ["Mo-Fr 09:00:00-17:00:00"]]);
+  window.$crisp.push(["set", "user:nickname", ["Venisha"]]);
+  window.$crisp.push(["set", "user:email", ["venishalove21@gmail.com"]]);
+  window.$crisp.push(["set", "user:phone", ["+1-773-641-8593"]]);
+  window.$crisp.push(["set", "session:segments", [["portfolio-site"]]]);
+  window.$crisp.push(["on", "message:received", function(msg) {
+    console.log("New message from visitor:", msg.content);
+  }]);
+  (function() {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+</script>
 </body>
 </html>
