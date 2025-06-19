@@ -6,34 +6,13 @@
   <title>Contracted Data Analysis & Dashboard Development for Businesses</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <script>
-    function filterReports() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      document.querySelectorAll('.tab-button').forEach(button => {
-        const match = button.innerText.toLowerCase().includes(query);
-        button.style.display = match ? 'inline-block' : 'none';
-      });
-    }
-
-    function showTab(id) {
-      document.querySelectorAll('.report-tab').forEach(tab => tab.classList.add('hidden'));
-      document.getElementById(id).classList.remove('hidden');
+    function openInNewTab(url, label) {
+      console.log(`Portfolio Report Clicked: ${label}`);
+      window.open(url, '_blank');
     }
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900">
-
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div>
-        <a href="#about" class="text-gray-600 hover:text-blue-500 mx-2">About</a>
-        <a href="#services" class="text-gray-600 hover:text-blue-500 mx-2">Services</a>
-        <a href="#portfolio" class="text-gray-600 hover:text-blue-500 mx-2">Portfolio</a>
-        <a href="#contact" class="text-gray-600 hover:text-blue-500 mx-2">Contact</a>
-      </div>
-    </div>
-  </nav>
-
   <!-- Hero Section -->
   <section class="bg-blue-600 text-white py-20">
     <div class="container mx-auto text-center">
@@ -47,65 +26,65 @@
     </div>
   </section>
 
-  <!-- Portfolio Section with Tabs -->
+  <!-- Portfolio Section with Thumbnails -->
   <section id="portfolio" class="py-12 px-4 bg-white">
     <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Portfolio Reports</h2>
-      <input id="searchInput" type="text" onkeyup="filterReports()" placeholder="Search reports..." class="border px-4 py-2 mb-6 rounded w-full max-w-md">
-
-      <!-- Tab Buttons -->
-      <div class="space-x-2 mb-6">
-        <button onclick="showTab('tab1')" class="tab-button bg-blue-600 text-white px-4 py-2 rounded">Portfolio Report 1</button>
-        <button onclick="showTab('tab2')" class="tab-button bg-blue-600 text-white px-4 py-2 rounded">Portfolio Report 2</button>
-        <button onclick="showTab('tab3')" class="tab-button bg-blue-600 text-white px-4 py-2 rounded">Portfolio Report 3</button>
-        <button onclick="showTab('tab4')" class="tab-button bg-blue-600 text-white px-4 py-2 rounded">Portfolio Report 4</button>
+      <h2 class="text-3xl font-bold mb-10">Portfolio Reports</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white shadow p-4 rounded">
+          <img src="images/thumb1.png" alt="Report 1 Thumbnail" class="rounded mb-4">
+          <h3 class="text-lg font-semibold">Portfolio Report 1</h3>
+          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF', 'Portfolio Report 1')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+        </div>
+        <div class="bg-white shadow p-4 rounded">
+          <img src="images/thumb2.png" alt="Report 2 Thumbnail" class="rounded mb-4">
+          <h3 class="text-lg font-semibold">Portfolio Report 2</h3>
+          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_b4xjtd5q3c', 'Portfolio Report 2')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+        </div>
+        <div class="bg-white shadow p-4 rounded">
+          <img src="images/thumb3.png" alt="Report 3 Thumbnail" class="rounded mb-4">
+          <h3 class="text-lg font-semibold">Portfolio Report 3</h3>
+          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/dba9168f-68da-46ab-bf42-c328e18cdd25/page/p_56g4z27cfc', 'Portfolio Report 3')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+        </div>
+        <div class="bg-white shadow p-4 rounded">
+          <img src="images/thumb4.png" alt="Report 4 Thumbnail" class="rounded mb-4">
+          <h3 class="text-lg font-semibold">Portfolio Report 4</h3>
+          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/4c3580de-7bee-4147-bc5a-52fb71020036/page/p_6gf2g6q2lc', 'Portfolio Report 4')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
+        </div>
       </div>
-
-      <!-- Report Tabs -->
-      <div id="tab1" class="report-tab">
-        <iframe class="w-full h-[80vh]" src="https://lookerstudio.google.com/embed/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF" allowfullscreen></iframe>
-        <p class="text-xs mt-2 text-gray-500">Reference: data.wa.gov</p>
-      </div>
-
-      <div id="tab2" class="report-tab hidden">
-        <iframe class="w-full h-[80vh]" src="https://lookerstudio.google.com/embed/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_b4xjtd5q3c" allowfullscreen></iframe>
-        <p class="text-xs mt-2 text-gray-500">Reference: data.wa.gov</p>
-      </div>
-
-      <div id="tab3" class="report-tab hidden">
-        <iframe class="w-full h-[80vh]" src="https://lookerstudio.google.com/embed/reporting/dba9168f-68da-46ab-bf42-c328e18cdd25/page/p_56g4z27cfc" allowfullscreen></iframe>
-        <p class="text-xs mt-2 text-gray-500">Reference: data.wa.gov</p>
-      </div>
-
-      <div id="tab4" class="report-tab hidden">
-        <iframe class="w-full h-[80vh]" src="https://lookerstudio.google.com/embed/reporting/4c3580de-7bee-4147-bc5a-52fb71020036/page/p_6gf2g6q2lc" allowfullscreen></iframe>
-        <p class="text-xs mt-2 text-gray-500">Reference: data.wa.gov</p>
-      </div>
+      <a href="#portfolio" class="mt-8 inline-block text-blue-600 underline">Back to Portfolio</a>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gray-100">
+  <!-- BI Services Section -->
+  <section id="services" class="py-16 bg-gray-100">
     <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold">Contact</h2>
-      <p class="mt-4 text-lg">Let's discuss how I can help you unlock your data's potential.</p>
-      <form action="https://formspree.io/f/xjkyaerp" method="POST" class="mt-8 max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <div class="mb-4">
-          <label for="name" class="block text-left font-semibold mb-1">Name</label>
-          <input type="text" id="name" name="name" required class="w-full border border-gray-300 px-4 py-2 rounded">
+      <h2 class="text-3xl font-bold">BI Services</h2>
+      <p class="mt-4 text-lg">Tailored BI solutions designed to elevate your business.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold">Privacy First</h3>
+          <img src="images/Privacyimage.png" alt="Privacy Example" class="mt-4 rounded shadow-md">
         </div>
-        <div class="mb-4">
-          <label for="email" class="block text-left font-semibold mb-1">Email</label>
-          <input type="email" id="email" name="_replyto" required class="w-full border border-gray-300 px-4 py-2 rounded">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold">Data Analysis</h3>
+          <img src="images/AnalysisImage.png" alt="Analysis Example" class="mt-4 rounded shadow-md">
+          <p class="mt-4 text-gray-600">
+            I turn raw data into meaningful insights using SQL, BigQuery, Excel, Google Sheets, Tableau, Power BI, and AppSheet.
+          </p>
         </div>
-        <div class="mb-4">
-          <label for="message" class="block text-left font-semibold mb-1">Message</label>
-          <textarea id="message" name="message" rows="5" required class="w-full border border-gray-300 px-4 py-2 rounded"></textarea>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-bold">Dashboard Development</h3>
+          <img src="images/Dashboardimage.png" alt="Dashboard Example" class="mt-4 rounded shadow-md">
+          <p class="mt-4 text-gray-600">
+            Custom dashboards to monitor key performance indicators in real-time.
+          </p>
         </div>
-        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
-          Send Message
-        </button>
-      </form>
+      </div>
     </div>
   </section>
 
@@ -115,6 +94,5 @@
       <p>&copy; 2025 Venisha Love. All rights reserved.</p>
     </div>
   </footer>
-
 </body>
 </html>
