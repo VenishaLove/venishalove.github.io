@@ -33,27 +33,58 @@
     </div>
   </section>
 
-  <!-- Portfolio Modal Trigger -->
+  <!-- Portfolio Buttons -->
   <section class="py-12 px-4 bg-white" id="portfolio">
     <div class="max-w-7xl mx-auto text-center">
-      <button onclick="openModal()" class="bg-blue-600 text-white px-6 py-3 rounded leading-tight text-left hover:bg-blue-700">
+      <!-- Button 1 -->
+      <button onclick="openModal('modal1')" class="bg-blue-600 text-white px-6 py-3 rounded leading-tight text-left hover:bg-blue-700 mb-4">
         <div class="font-semibold text-base">Portfolio Report 1</div>
+        <div class="text-xs text-white opacity-80">Reference: data.wa.gov</div>
+      </button>
+      <br>
+      <!-- Button 2 -->
+      <button onclick="openModal('modal2')" class="bg-blue-600 text-white px-6 py-3 rounded leading-tight text-left hover:bg-blue-700 mb-4">
+        <div class="font-semibold text-base">Portfolio Report 2</div>
+        <div class="text-xs text-white opacity-80">Reference: data.wa.gov</div>
+      </button>
+      <br>
+      <!-- Button 3 -->
+      <button onclick="openModal('modal3')" class="bg-blue-600 text-white px-6 py-3 rounded leading-tight text-left hover:bg-blue-700 mb-4">
+        <div class="font-semibold text-base">Portfolio Report 3</div>
+        <div class="text-xs text-white opacity-80">Reference: data.wa.gov</div>
+      </button>
+      <br>
+      <!-- Button 4 -->
+      <button onclick="openModal('modal4')" class="bg-blue-600 text-white px-6 py-3 rounded leading-tight text-left hover:bg-blue-700">
+        <div class="font-semibold text-base">Portfolio Report 4</div>
         <div class="text-xs text-white opacity-80">Reference: data.wa.gov</div>
       </button>
     </div>
   </section>
 
-  <!-- Modal -->
-  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-lg overflow-auto w-full max-w-[95%] h-[90%] p-4 relative shadow-lg">
-      <button onclick="closeModal()" class="absolute top-2 right-4 text-gray-600 hover:text-black text-3xl font-bold">&times;</button>
-      <iframe 
-        src="https://lookerstudio.google.com/embed/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF" 
-        frameborder="0" 
-        allowfullscreen 
-        style="width: 100%; height: 100%; border: 0;"
-        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-      </iframe>
+  <!-- Modals -->
+  <div id="modal1" class="modal hidden">
+    <div class="modal-content">
+      <button onclick="closeModal('modal1')" class="modal-close">&times;</button>
+      <iframe src="https://lookerstudio.google.com/embed/reporting/1ef64bf6-a5a9-48dc-a4ed-12fc5f79d3fd/page/En8NF"></iframe>
+    </div>
+  </div>
+  <div id="modal2" class="modal hidden">
+    <div class="modal-content">
+      <button onclick="closeModal('modal2')" class="modal-close">&times;</button>
+      <iframe src="https://lookerstudio.google.com/embed/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_b4xjtd5q3c"></iframe>
+    </div>
+  </div>
+  <div id="modal3" class="modal hidden">
+    <div class="modal-content">
+      <button onclick="closeModal('modal3')" class="modal-close">&times;</button>
+      <iframe src="https://lookerstudio.google.com/embed/reporting/dba9168f-68da-46ab-bf42-c328e18cdd25/page/p_56g4z27cfc"></iframe>
+    </div>
+  </div>
+  <div id="modal4" class="modal hidden">
+    <div class="modal-content">
+      <button onclick="closeModal('modal4')" class="modal-close">&times;</button>
+      <iframe src="https://lookerstudio.google.com/embed/reporting/4c3580de-7bee-4147-bc5a-52fb71020036/page/p_6gf2g6q2lc"></iframe>
     </div>
   </div>
 
@@ -117,18 +148,53 @@
     </div>
   </footer>
 
+  <!-- Modal Styling -->
+  <style>
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+    .modal-content {
+      background: white;
+      width: 95%;
+      height: 90%;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      position: relative;
+      overflow: auto;
+    }
+    .modal-content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: #4b5563;
+      cursor: pointer;
+    }
+  </style>
+
+  <!-- Modal Script -->
   <script>
-    function openModal() {
-      const modal = document.getElementById("modal");
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
     }
 
-    function closeModal() {
-      const modal = document.getElementById("modal");
-      modal.classList.remove("flex");
-      modal.classList.add("hidden");
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
     }
   </script>
+
 </body>
 </html>
