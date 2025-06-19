@@ -13,6 +13,16 @@
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div>
+        <a href="#portfolio" class="text-gray-600 hover:text-blue-500 mx-2">Portfolio</a>
+        <a href="#services" class="text-gray-600 hover:text-blue-500 mx-2">Services</a>
+        <a href="#contact" class="text-gray-600 hover:text-blue-500 mx-2">Contact</a>
+      </div>
+    </div>
+  </nav>
   <!-- Hero Section -->
   <section class="bg-blue-600 text-white py-20">
     <div class="container mx-auto text-center">
@@ -40,23 +50,48 @@
         <div class="bg-white shadow p-4 rounded">
           <img src="images/thumb2.png" alt="Report 2 Thumbnail" class="rounded mb-4">
           <h3 class="text-lg font-semibold">Portfolio Report 2</h3>
-          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <p class="text-xs text-gray-500 mb-4">Reference: mavenanalytics.io</p>
           <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_b4xjtd5q3c', 'Portfolio Report 2')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
           <img src="images/thumb3.png" alt="Report 3 Thumbnail" class="rounded mb-4">
           <h3 class="text-lg font-semibold">Portfolio Report 3</h3>
-          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <p class="text-xs text-gray-500 mb-4">Reference: mavenanalytics.io</p>
           <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/dba9168f-68da-46ab-bf42-c328e18cdd25/page/p_56g4z27cfc', 'Portfolio Report 3')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
         <div class="bg-white shadow p-4 rounded">
           <img src="images/thumb4.png" alt="Report 4 Thumbnail" class="rounded mb-4">
           <h3 class="text-lg font-semibold">Portfolio Report 4</h3>
-          <p class="text-xs text-gray-500 mb-4">Reference: data.wa.gov</p>
+          <p class="text-xs text-gray-500 mb-4">Reference: mavenanalytics.io</p>
           <button onclick="openInNewTab('https://lookerstudio.google.com/reporting/4c3580de-7bee-4147-bc5a-52fb71020036/page/p_6gf2g6q2lc', 'Portfolio Report 4')" class="bg-blue-600 text-white px-4 py-2 rounded">View Report</button>
         </div>
       </div>
       <a href="#portfolio" class="mt-8 inline-block text-blue-600 underline">Back to Portfolio</a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold">Contact</h2>
+      <p class="mt-4 text-lg">Let's discuss how I can help you unlock your data's potential.</p>
+      <form action="https://formspree.io/f/xjkyaerp" method="POST" class="mt-8 max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+          <label for="name" class="block text-left font-semibold mb-1">Name</label>
+          <input type="text" id="name" name="name" required class="w-full border border-gray-300 px-4 py-2 rounded">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-left font-semibold mb-1">Email</label>
+          <input type="email" id="email" name="_replyto" required class="w-full border border-gray-300 px-4 py-2 rounded">
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block text-left font-semibold mb-1">Message</label>
+          <textarea id="message" name="message" rows="5" required class="w-full border border-gray-300 px-4 py-2 rounded"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+          Send Message
+        </button>
+      </form>
     </div>
   </section>
 
