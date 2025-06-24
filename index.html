@@ -136,31 +136,22 @@
 
   <!-- Crisp Chatbot -->
   <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_READY_TRIGGER = function() {
-      $crisp.push(["do", "chat:open"]);
-    };
-    window.CRISP_WEBSITE_ID = "2d076318-015d-442b-a933-2fbf3fc39886";
-    window.$crisp.push(["do", "chat:show"]);
-    window.$crisp.push(["set", "user:availability", ["Mo-Fr 09:00:00-17:00:00"]]);
-    window.$crisp.push(["set", "user:nickname", ["Venisha"]]);
-    window.$crisp.push(["set", "user:email", ["venishalove21@gmail.com"]]);
-    window.$crisp.push(["set", "session:segments", [["portfolio-site"]]]);
-    setTimeout(function() {
-      window.$crisp.push(["do", "message:send", ["text", "Hi there! 👋 Have a question about my services or portfolio? I'm here to help."]]);
-    }, 4000);
-    
-        window.$crisp.push(["on", "message:received", function(msg) {
-      console.log("New message from visitor:", msg.content);
-    }]);
-    (function() {
-      d = document;
-      s = d.createElement("script");
-      s.src = "https://client.crisp.chat/l.js";
-      s.async = 1;
-      d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-  </script>
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "2d076318-015d-442b-a933-2fbf3fc39886";
+  window.CRISP_RUNTIME_CONFIG = {
+    autoload: true,
+    hide_welcome_message: true
+  };
+
+  (function () {
+    var d = document;
+    var s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+</script>
+
 
 </section>
   
