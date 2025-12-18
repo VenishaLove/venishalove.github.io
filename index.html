@@ -200,37 +200,39 @@
   <div class="container">
     <h2>Projects</h2>
 
-    <div class="grid">
-      <!-- PROJECT 1: LOOKER STUDIO DASHBOARD -->
-      <div class="card" style="grid-column: span 3;">
-        <h3>Restaurant Sales Dashboard (Looker Studio)</h3>
-        <p>
-          I've built a Looker Studio dashboard to analyze restaurant sales at both the category and item level. The dashboard breaks down revenue, percentage contribution, and units sold to make it easy to see which cuisines and menu items are driving performance and where revenue is concentrated.
-        </p>
+    <article class="project-card project-wide">
+  <h3>Restaurant Sales Dashboard (Looker Studio)</h3>
 
-        <div style="margin: 20px 0; border-radius: 12px; overflow: hidden; border: 1px solid #1f2933;">
-          <iframe
-            src=<iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-            width="100%"
-            height="520"
-            style="border:0;"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-        </div>
+  <p class="project-desc">
+    I've built a Looker Studio dashboard to analyze restaurant sales at both the
+    category and item level. The dashboard breaks down revenue, percentage
+    contribution, and units sold to make it easy to see which cuisines and menu
+    items are driving performance and where revenue is concentrated.
+  </p>
 
-        <span class="tag">Looker Studio</span>
-        <span class="tag">K-12 Analytics</span>
-        <span class="tag">Dashboards</span>
+  <!-- iframe must be OUTSIDE the paragraph -->
+  <div class="embed">
+    <iframe
+      src="https://lookerstudio.google.com/embed/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC"
+      title="Restaurant Sales Dashboard"
+      loading="lazy"
+      allowfullscreen
+      referrerpolicy="strict-origin-when-cross-origin">
+    </iframe>
+  </div>
 
-        <p style="margin-top: 12px;">
-          <a href="https://lookerstudio.google.com/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC"
-             target="_blank"
-             class="btn">
-            Open Full Dashboard
-          </a>
-        </p>
-      </div>
+  <div class="tags">
+    <span class="tag">Looker Studio</span>
+    <span class="tag">Dashboards</span>
+    <span class="tag">Analytics</span>
+  </div>
+
+  <a class="btn" target="_blank"
+     href="https://lookerstudio.google.com/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC">
+    Open Full Dashboard
+  </a>
+</article>
+
 
       <!-- PROJECT 2 -->
       <div class="card">
@@ -309,6 +311,7 @@
   </script>
 </body>
 </html>
+
 
 
 
