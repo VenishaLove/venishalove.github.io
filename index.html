@@ -11,19 +11,157 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- CSS (must match filename exactly) -->
-  <link rel="stylesheet" href="styles.css" />
+  <!-- ALL CSS IS HERE -->
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0b0f19;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #0b0f19;
+      border-bottom: 1px solid #1f2933;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    nav a {
+      margin-left: 16px;
+    }
+
+    .hero {
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border: 1px solid #374151;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin: 16px 0;
+    }
+
+    .accent { color: #60a5fa; }
+
+    .lead { color: #d1d5db; }
+
+    .actions { margin-top: 20px; }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: #60a5fa;
+      color: #0b0f19;
+      font-weight: 600;
+      margin-right: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border: 1px solid #374151;
+      color: #e5e7eb;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .section.alt {
+      background: #0f172a;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #1f2933;
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 8px;
+      margin-right: 6px;
+      padding: 4px 10px;
+      font-size: 13px;
+      background: #1f2933;
+      border-radius: 999px;
+      color: #9ca3af;
+    }
+
+    ul { padding-left: 18px; }
+
+    footer {
+      padding: 24px;
+      text-align: center;
+      border-top: 1px solid #1f2933;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
-  <header class="header">
+  <header>
     <div class="container nav">
       <div class="logo">VL</div>
       <nav>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#about">About</a>
-        <a href="#contact" class="btn small">Contact</a>
+        <a href="#contact" class="btn ghost">Contact</a>
       </nav>
     </div>
   </header>
@@ -42,23 +180,17 @@
 
           <div class="actions">
             <a href="#projects" class="btn">View Projects</a>
-            <button id="copyEmail" class="btn ghost">Copy Email</button>
+            <button class="btn ghost" onclick="copyEmail()">Copy Email</button>
           </div>
-
-          <p class="links">
-            <a href="https://github.com/" target="_blank">GitHub</a> •
-            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a> •
-            <a href="#contact">Contact</a>
-          </p>
         </div>
 
         <div class="card">
           <h3>What I Do</h3>
           <ul>
-            <li>Dashboards (Looker Studio, BI tools)</li>
+            <li>Dashboards (Looker Studio, BI)</li>
             <li>SQL analytics (BigQuery)</li>
             <li>Automation & data quality</li>
-            <li>Strategic planning systems (FrameworkED)</li>
+            <li>Strategic planning (FrameworkED)</li>
           </ul>
         </div>
       </div>
@@ -72,7 +204,7 @@
         <div class="grid">
           <div class="card">
             <h3>Attendance vs Weather Analysis</h3>
-            <p>Analyzed attendance patterns alongside weather data to identify high-risk days.</p>
+            <p>Joined attendance trends with weather data to identify high-risk days.</p>
             <span class="tag">BigQuery</span>
             <span class="tag">SQL</span>
             <span class="tag">Looker Studio</span>
@@ -80,14 +212,14 @@
 
           <div class="card">
             <h3>Automated Honor Roll Generator</h3>
-            <p>Automated term-based honor roll creation to eliminate manual spreadsheet work.</p>
+            <p>Automated term-based honor roll creation.</p>
             <span class="tag">Sheets</span>
             <span class="tag">Automation</span>
           </div>
 
           <div class="card">
             <h3>FrameworkED</h3>
-            <p>Goal-setting and tracking platform concept for K-12 districts.</p>
+            <p>Goal tracking platform for K-12 districts.</p>
             <span class="tag">AppSheet</span>
             <span class="tag">BigQuery</span>
           </div>
@@ -99,7 +231,7 @@
     <section id="skills" class="section alt">
       <div class="container">
         <h2>Skills</h2>
-        <ul class="columns">
+        <ul>
           <li>SQL & Data Modeling</li>
           <li>Dashboard Design</li>
           <li>BigQuery & GCP</li>
@@ -113,8 +245,8 @@
       <div class="container">
         <h2>About</h2>
         <p>
-          I’m a data analyst working in education, focused on building systems that make decision-making
-          easier for leadership. I value clarity, structure, and repeatable processes.
+          I’m a data analyst in education focused on building reliable reporting systems
+          and dashboards for leadership.
         </p>
       </div>
     </section>
@@ -130,10 +262,18 @@
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Venisha Love</p>
+    © <span id="year"></span> Venisha Love
   </footer>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <!-- ALL JS IS HERE -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function copyEmail() {
+      const email = document.getElementById("email").textContent;
+      navigator.clipboard.writeText(email);
+      alert("Email copied!");
+    }
+  </script>
 </body>
 </html>
