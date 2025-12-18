@@ -1,255 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Venisha Love | Data Analyst</title>
+  <meta name="description" content="Portfolio of Venisha Love — dashboards, analytics, and projects." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #0b0f19;
-      color: #e5e7eb;
-      line-height: 1.6;
+    :root{
+      --bg:#0b0f19;
+      --panel:#111827;
+      --panel2:#0f172a;
+      --text:#e5e7eb;
+      --muted:#a1a1aa;
+      --accent:#60a5fa;
+      --border: rgba(255,255,255,0.10);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
-    a {
-      color: #60a5fa;
-      text-decoration: none;
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(96,165,250,.14), transparent 60%),
+        radial-gradient(1000px 600px at 80% 20%, rgba(34,197,94,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
     }
 
-    .container {
-      width: min(1200px, 92%);
-      margin: auto;
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .container{
+      width:min(1100px, 92%);
+      margin-inline:auto;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      background: #0b0f19;
-      border-bottom: 1px solid #1f2933;
-      z-index: 10;
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus{
+      left:12px; top:12px;
+      width:auto; height:auto;
+      padding:10px 12px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:10px;
+      z-index:1000;
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
+    header{
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,0.62);
+      border-bottom:1px solid var(--border);
+      z-index:50;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 20px;
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
     }
 
-    nav a {
-      margin-left: 16px;
-      font-weight: 500;
+    .logo{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:40px; height:40px;
+      border-radius:12px;
+      background: linear-gradient(135deg, rgba(96,165,250,.25), rgba(96,165,250,.05));
+      border:1px solid var(--border);
+      font-weight:800;
+      letter-spacing:0.5px;
     }
 
-    .hero {
-      padding: 80px 0;
+    .nav-links{
+      display:flex;
+      gap:16px;
+      list-style:none;
+      margin:0;
+      padding:0;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
-    h1 {
-      font-size: 42px;
-      margin: 16px 0;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(96,165,250,0.45);
+      background: rgba(96,165,250,0.15);
+      font-weight:600;
+      cursor:pointer;
+    }
+    .btn:hover{ text-decoration:none; filter:brightness(1.06); }
+    .btn:active{ transform: translateY(1px); }
+
+    .btn-ghost{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
     }
 
-    .pill {
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid #374151;
+    .btn-small{
+      padding:8px 12px;
+      border-radius:11px;
+      font-size:0.95rem;
+    }
+
+    .hero{
+      padding:64px 0 30px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    h1{
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin:12px 0 10px;
+      line-height:1.1;
+    }
+    .accent{ color: var(--accent); }
+
+    .lead{
+      color:#d1d5db;
+      font-size:1.05rem;
+      margin: 0 0 18px;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .meta{
+      margin-top:14px;
+      color: var(--muted);
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .section{
+      padding:50px 0;
+    }
+
+    .section.alt{
+      background: rgba(255,255,255,0.02);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+
+    .section-head h2{
+      margin:0 0 6px;
+      font-size:1.7rem;
+    }
+
+    .section-head p{
+      margin:0 0 18px;
+      color: var(--muted);
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card.highlight{
+      background: linear-gradient(180deg, rgba(96,165,250,0.10), rgba(255,255,255,0.02));
+    }
+
+    .muted{ color: var(--muted); }
+
+    .checklist{
+      padding-left: 18px;
+      margin: 10px 0 0;
+    }
+    .checklist li{ margin: 6px 0; }
+
+    /* Projects layout */
+    .projects-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+
+    .project-wide{
+      grid-column: span 3;
+    }
+
+    .project-title{ margin:0 0 8px; }
+    .project-desc{ margin:0 0 10px; color:#d1d5db; }
+
+    .tags{
+      list-style:none;
+      display:flex;
+      gap:8px;
+      padding:0;
+      margin: 12px 0 0;
+      flex-wrap:wrap;
+    }
+    .tag{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      padding: 6px 10px;
       border-radius: 999px;
-      font-size: 14px;
-      color: #9ca3af;
+      color: var(--muted);
+      font-size: 0.9rem;
+      display:inline-block;
     }
 
-    .accent { color: #60a5fa; }
-
-    .section {
-      padding: 70px 0;
+    .project-actions{
+      display:flex;
+      gap:10px;
+      margin-top:14px;
+      flex-wrap:wrap;
     }
 
-    .section.alt {
-      background: #0f172a;
-    }
-
-    /* PROJECTS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      margin-top: 30px;
-    }
-
-    .project-card {
-      background: #111827;
-      border: 1px solid #1f2933;
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .project-title {
-      margin: 0 0 12px;
-      font-size: 22px;
-    }
-
-    .project-desc {
-      color: #d1d5db;
-      max-width: 900px;
-    }
-
-    .tags {
-      display: flex;
-      gap: 10px;
-      margin: 14px 0 18px;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: #1f2933;
-      font-size: 13px;
-      color: #9ca3af;
-    }
-
-    /* DASHBOARD EMBED — HEIGHT IS SET HERE */
-    .embed {
-      margin-top: 20px;
+    /* Embed (height doubled here) */
+    .embed{
+      margin-top: 18px;
       border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid #1f2933;
-      background: #0b0f19;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#0b0f19;
+    }
+    .embed iframe{
+      width:100%;
+      height:1000px; /* ✅ double-size */
+      border:0;
+      display:block;
     }
 
-    .embed iframe {
-      width: 100%;
-      height: 1000px; /* ← DASHBOARD IS DOUBLED HERE */
-      border: 0;
-      display: block;
+    /* Skills */
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:16px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 14px;
-      padding: 10px 16px;
-      border-radius: 10px;
-      background: #60a5fa;
-      color: #0b0f19;
-      font-weight: 600;
+    .bullets{
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    .bullets li{ margin: 6px 0; }
+
+    footer{
+      padding:24px 0;
+    }
+    .footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      color: var(--muted);
+      flex-wrap:wrap;
     }
 
-    footer {
-      padding: 30px;
-      text-align: center;
-      border-top: 1px solid #1f2933;
-      color: #9ca3af;
-    }
-
-    @media (max-width: 900px) {
-      .embed iframe {
-        height: 700px;
-      }
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .projects-grid{ grid-template-columns: 1fr; }
+      .project-wide{ grid-column: auto; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .embed iframe{ height: 700px; } /* better on phones */
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header>
-  <div class="container nav">
-    <div class="logo">VL</div>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <p class="pill">Data Analyst • Analytics • Dashboards</p>
-      <h1>Hi, I’m <span class="accent">Venisha Love</span></h1>
-      <p>
-        I build dashboards and analytics that turn raw data into clear,
-        decision-ready insights.
-      </p>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">VL</a>
+      <nav aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a class="btn btn-small" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2>Projects</h2>
-
-      <div class="projects-grid">
-
-        <article class="project-card">
-          <h3 class="project-title">Restaurant Sales Dashboard (Looker Studio)</h3>
-
-          <p class="project-desc">
-            I’ve built a Looker Studio dashboard to analyze restaurant sales at both the
-            category and item level. The dashboard breaks down revenue, percentage
-            contribution, and units sold to make it easy to see which cuisines and menu
-            items are driving performance and where revenue is concentrated.
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="pill">Data Analyst • Dashboards • Analytics</p>
+          <h1>Hi, I’m <span class="accent">Venisha Love</span>.</h1>
+          <p class="lead">
+            I build dashboards and analytics that turn raw data into clear, decision-ready insights.
           </p>
 
-          <div class="tags">
-            <span class="tag">Looker Studio</span>
-            <span class="tag">Dashboards</span>
-            <span class="tag">Analytics</span>
+          <div class="cta-row">
+            <a class="btn" href="#projects">View Projects</a>
+            <button class="btn btn-ghost" id="copyEmailBtn" type="button">Copy Email</button>
           </div>
 
-          <div class="embed">
-            <iframe
-              src="https://lookerstudio.google.com/embed/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC"
-              title="Restaurant Sales Dashboard"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
+          <div class="meta">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <span>•</span>
+            <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <span>•</span>
+            <a href="#contact">Contact</a>
           </div>
+        </div>
 
-          <a class="btn" target="_blank"
-             href="https://lookerstudio.google.com/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC">
-            Open Full Dashboard
-          </a>
-        </article>
-
+        <div class="card highlight">
+          <h2 style="margin:0 0 10px;">What I do</h2>
+          <ul class="checklist">
+            <li>Dashboards (Looker Studio + BI)</li>
+            <li>SQL analytics</li>
+            <li>Automation + data quality</li>
+            <li>Clear reporting for leadership</li>
+          </ul>
+        </div>
       </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Featured work and build notes. Add more projects by copying a project card.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- FEATURED: Dashboard embed -->
+          <article class="card project-wide">
+            <h3 class="project-title">Restaurant Sales Dashboard (Looker Studio)</h3>
+            <p class="project-desc">
+              I’ve built a Looker Studio dashboard to analyze restaurant sales at both the category and item level.
+              It breaks down revenue, percentage contribution, and units sold so it’s easy to see what’s driving performance
+              and where revenue is concentrated.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Looker Studio</span>
+              <span class="tag">Dashboards</span>
+              <span class="tag">Analytics</span>
+            </div>
+
+            <div class="embed">
+              <iframe
+                src="https://lookerstudio.google.com/embed/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC"
+                title="Restaurant Sales Dashboard (Looker Studio)"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
+
+            <div class="project-actions">
+              <a class="btn" target="_blank" rel="noreferrer"
+                 href="https://lookerstudio.google.com/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC">
+                Open Full Dashboard
+              </a>
+            </div>
+          </article>
+
+          <!-- Standard project cards -->
+          <article class="card">
+            <h3 class="project-title">Automated Honor Roll Generator</h3>
+            <p class="project-desc">
+              Automated a term-based honor roll workflow to reduce manual spreadsheet work and avoid errors.
+            </p>
+            <div class="tags">
+              <span class="tag">Sheets/Excel</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Data QA</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-small btn-ghost" href="#" target="_blank" rel="noreferrer">Walkthrough</a>
+              <a class="btn btn-small btn-ghost" href="#" target="_blank" rel="noreferrer">Docs</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3 class="project-title">FrameworkED</h3>
+            <p class="project-desc">
+              Goal-setting and tracking platform concept for districts—focused on clarity, accountability, and progress tracking.
+            </p>
+            <div class="tags">
+              <span class="tag">Product</span>
+              <span class="tag">Planning</span>
+              <span class="tag">Dashboards</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-small btn-ghost" href="#" target="_blank" rel="noreferrer">Prototype</a>
+              <a class="btn btn-small btn-ghost" href="#" target="_blank" rel="noreferrer">Pitch</a>
+            </div>
+          </article>
+
+          <!-- TEMPLATE: Copy/paste this block to add more projects -->
+          <!--
+          <article class="card">
+            <h3 class="project-title">Project Name</h3>
+            <p class="project-desc">
+              1–2 sentences: what you built, what it analyzes/automates, why it matters.
+            </p>
+            <div class="tags">
+              <span class="tag">Tool 1</span>
+              <span class="tag">Tool 2</span>
+              <span class="tag">Tool 3</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-small btn-ghost" href="https://link-to-demo" target="_blank" rel="noreferrer">Demo</a>
+              <a class="btn btn-small btn-ghost" href="https://link-to-code" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </article>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p>What I use to build dashboards and analytics people can trust.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3 style="margin:0 0 8px;">Analytics</h3>
+            <ul class="bullets">
+              <li>SQL (joins, CTEs, windows, QA checks)</li>
+              <li>KPI tracking, trend analysis</li>
+              <li>Data storytelling for stakeholders</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0 0 8px;">Tools</h3>
+            <ul class="bullets">
+              <li>Looker Studio</li>
+              <li>BigQuery / Google Cloud basics</li>
+              <li>Excel / Google Sheets automation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+        </div>
+
+        <div class="card">
+          <p style="margin:0 0 10px;">
+            I’m a data analyst focused on building clean, usable dashboards and reporting systems.
+            I like work that’s structured, repeatable, and actually helps people make decisions.
+          </p>
+          <p class="muted" style="margin:0;">
+            I’m also building FrameworkED as a long-term product idea around goal tracking and planning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Replace the email and links with your real ones.</p>
+        </div>
+
+        <div class="card">
+          <p style="margin:0 0 10px;">
+            Email: <a id="emailLink" href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <div class="project-actions">
+            <a class="btn" href="mailto:youremail@example.com">Send Email</a>
+            <a class="btn btn-ghost" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer">
+      <span>© <span id="year"></span> Venisha Love</span>
+      <span class="muted">Built with GitHub Pages</span>
     </div>
-  </section>
+  </footer>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section alt">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Email: youremail@example.com</p>
-    </div>
-  </section>
+  <script>
+    // year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-</main>
+    // copy email
+    const btn = document.getElementById("copyEmailBtn");
+    const emailLink = document.getElementById("emailLink");
 
-<footer>
-  © <span id="year"></span> Venisha Love
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+    if (btn && emailLink) {
+      btn.addEventListener("click", async () => {
+        const email = emailLink.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(email);
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = "Copy Email"), 1200);
+        } catch {
+          window.location.href = `mailto:${email}`;
+        }
+      });
+    }
+  </script>
 </body>
 </html>
