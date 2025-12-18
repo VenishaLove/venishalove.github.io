@@ -4,14 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Venisha Love | Data Analyst</title>
-  <meta name="description" content="Data analytics portfolio of Venisha Love" />
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- ALL CSS IS HERE -->
   <style>
     * { box-sizing: border-box; }
 
@@ -29,7 +26,7 @@
     }
 
     .container {
-      width: min(1100px, 92%);
+      width: min(1200px, 92%);
       margin: auto;
     }
 
@@ -55,16 +52,16 @@
 
     nav a {
       margin-left: 16px;
+      font-weight: 500;
     }
 
     .hero {
       padding: 80px 0;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+    h1 {
+      font-size: 42px;
+      margin: 16px 0;
     }
 
     .pill {
@@ -76,242 +73,183 @@
       color: #9ca3af;
     }
 
-    h1 {
-      font-size: 42px;
-      margin: 16px 0;
-    }
-
     .accent { color: #60a5fa; }
 
-    .lead { color: #d1d5db; }
-
-    .actions { margin-top: 20px; }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 10px;
-      background: #60a5fa;
-      color: #0b0f19;
-      font-weight: 600;
-      margin-right: 10px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn.ghost {
-      background: transparent;
-      border: 1px solid #374151;
-      color: #e5e7eb;
-    }
-
     .section {
-      padding: 60px 0;
+      padding: 70px 0;
     }
 
     .section.alt {
       background: #0f172a;
     }
 
-    .grid {
+    /* PROJECTS */
+    .projects-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-top: 30px;
     }
 
-    .card {
+    .project-card {
       background: #111827;
       border: 1px solid #1f2933;
-      border-radius: 14px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .project-title {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .project-desc {
+      color: #d1d5db;
+      max-width: 900px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      margin: 14px 0 18px;
+      flex-wrap: wrap;
     }
 
     .tag {
-      display: inline-block;
-      margin-top: 8px;
-      margin-right: 6px;
-      padding: 4px 10px;
-      font-size: 13px;
-      background: #1f2933;
+      padding: 6px 12px;
       border-radius: 999px;
+      background: #1f2933;
+      font-size: 13px;
       color: #9ca3af;
     }
 
-    ul { padding-left: 18px; }
+    /* DASHBOARD EMBED — HEIGHT IS SET HERE */
+    .embed {
+      margin-top: 20px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #1f2933;
+      background: #0b0f19;
+    }
+
+    .embed iframe {
+      width: 100%;
+      height: 1000px; /* ← DASHBOARD IS DOUBLED HERE */
+      border: 0;
+      display: block;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: #60a5fa;
+      color: #0b0f19;
+      font-weight: 600;
+    }
 
     footer {
-      padding: 24px;
+      padding: 30px;
       text-align: center;
       border-top: 1px solid #1f2933;
       color: #9ca3af;
     }
 
     @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
+      .embed iframe {
+        height: 700px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="container nav">
-      <div class="logo">VL</div>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="btn ghost">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="pill">Data Analyst • K-12 Analytics • Cloud Curious</p>
-          <h1>Hi, I’m <span class="accent">Venisha Love</span></h1>
-          <p class="lead">
-            I build dashboards, automate reporting, and turn messy school data into clear decisions.
-            Currently working in public-sector education analytics.
+<header>
+  <div class="container nav">
+    <div class="logo">VL</div>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="pill">Data Analyst • Analytics • Dashboards</p>
+      <h1>Hi, I’m <span class="accent">Venisha Love</span></h1>
+      <p>
+        I build dashboards and analytics that turn raw data into clear,
+        decision-ready insights.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <h3 class="project-title">Restaurant Sales Dashboard (Looker Studio)</h3>
+
+          <p class="project-desc">
+            I’ve built a Looker Studio dashboard to analyze restaurant sales at both the
+            category and item level. The dashboard breaks down revenue, percentage
+            contribution, and units sold to make it easy to see which cuisines and menu
+            items are driving performance and where revenue is concentrated.
           </p>
 
-          <div class="actions">
-            <a href="#projects" class="btn">View Projects</a>
-            <button class="btn ghost" onclick="copyEmail()">Copy Email</button>
+          <div class="tags">
+            <span class="tag">Looker Studio</span>
+            <span class="tag">Dashboards</span>
+            <span class="tag">Analytics</span>
           </div>
-        </div>
 
-        <div class="card">
-          <h3>What I Do</h3>
-          <ul>
-            <li>Dashboards (Looker Studio, BI)</li>
-            <li>SQL analytics (BigQuery)</li>
-            <li>Automation & data quality</li>
-            <li>Strategic planning (FrameworkED)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+          <div class="embed">
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC"
+              title="Restaurant Sales Dashboard"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
 
-    <section id="projects" class="section">
-  <div class="container">
-    <h2>Projects</h2>
+          <a class="btn" target="_blank"
+             href="https://lookerstudio.google.com/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC">
+            Open Full Dashboard
+          </a>
+        </article>
 
-    <article class="project-card project-wide">
-  <h3>Restaurant Sales Dashboard (Looker Studio)</h3>
-
-  <p class="project-desc">
-    I've built a Looker Studio dashboard to analyze restaurant sales at both the
-    category and item level. The dashboard breaks down revenue, percentage
-    contribution, and units sold to make it easy to see which cuisines and menu
-    items are driving performance and where revenue is concentrated.
-  </p>
-
-  <!-- iframe must be OUTSIDE the paragraph -->
-  <div class="embed">
-    <iframe
-      src="https://lookerstudio.google.com/embed/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC"
-      title="Restaurant Sales Dashboard"
-      loading="lazy"
-      allowfullscreen
-      referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
-  </div>
-
-  <div class="tags">
-    <span class="tag">Looker Studio</span>
-    <span class="tag">Dashboards</span>
-    <span class="tag">Analytics</span>
-  </div>
-
-  <a class="btn" target="_blank"
-     href="https://lookerstudio.google.com/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC">
-    Open Full Dashboard
-  </a>
-</article>
-
-
-      <!-- PROJECT 2 -->
-      <div class="card">
-        <h3>Automated Honor Roll Generator</h3>
-        <p>
-          Automated term-based honor roll creation to eliminate manual spreadsheet
-          work and reduce errors.
-        </p>
-        <span class="tag">Sheets</span>
-        <span class="tag">Automation</span>
-      </div>
-
-      <!-- PROJECT 3 -->
-      <div class="card">
-        <h3>FrameworkED</h3>
-        <p>
-          Goal-setting and tracking platform concept for K-12 districts focused on
-          strategic planning and accountability.
-        </p>
-        <span class="tag">AppSheet</span>
-        <span class="tag">BigQuery</span>
-        <span class="tag">Product</span>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: youremail@example.com</p>
+    </div>
+  </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section alt">
-      <div class="container">
-        <h2>Skills</h2>
-        <ul>
-          <li>SQL & Data Modeling</li>
-          <li>Dashboard Design</li>
-          <li>BigQuery & GCP</li>
-          <li>Excel / Sheets Automation</li>
-        </ul>
-      </div>
-    </section>
+</main>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About</h2>
-        <p>
-          I’m a data analyst in education focused on building reliable reporting systems
-          and dashboards for leadership.
-        </p>
-      </div>
-    </section>
+<footer>
+  © <span id="year"></span> Venisha Love
+</footer>
 
-    <!-- CONTACT -->
-    <section id="contact" class="section alt">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>Email: <span id="email">youremail@example.com</span></p>
-        <a class="btn" href="mailto:youremail@example.com">Send Email</a>
-      </div>
-    </section>
-  </main>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
-  <footer>
-    © <span id="year"></span> Venisha Love
-  </footer>
-
-  <!-- ALL JS IS HERE -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    function copyEmail() {
-      const email = document.getElementById("email").textContent;
-      navigator.clipboard.writeText(email);
-      alert("Email copied!");
-    }
-  </script>
 </body>
 </html>
-
-
-
-
