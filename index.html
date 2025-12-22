@@ -214,15 +214,17 @@
     }
     .checklist li{ margin: 6px 0; }
 
-    /* Projects layout */
+    /* ✅ Projects layout — side by side */
     .projects-grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap:16px;
+      align-items:start;
     }
 
+    /* No more forced full-width projects */
     .project-wide{
-      grid-column: span 3;
+      grid-column: auto;
     }
 
     .project-title{ margin:0 0 8px; }
@@ -253,7 +255,7 @@
       flex-wrap:wrap;
     }
 
-    /* Embed (height doubled here) */
+    /* Embed */
     .embed{
       margin-top: 18px;
       border-radius: 14px;
@@ -263,7 +265,7 @@
     }
     .embed iframe{
       width:100%;
-      height:700px; /* ✅ double-size */
+      height:700px; /* keep your larger size */
       border:0;
       display:block;
     }
@@ -295,10 +297,9 @@
 
     @media (max-width: 900px){
       .hero-grid{ grid-template-columns: 1fr; }
-      .projects-grid{ grid-template-columns: 1fr; }
-      .project-wide{ grid-column: auto; }
+      .projects-grid{ grid-template-columns: 1fr; } /* stack on mobile */
       .grid-2{ grid-template-columns: 1fr; }
-      .embed iframe{ height: 700px; } /* better on phones */
+      .embed iframe{ height: 600px; }
     }
   </style>
 </head>
@@ -333,7 +334,6 @@
 
           <div class="cta-row">
             <a class="btn" href="#projects">View Projects</a>
-            
           </div>
 
           <div class="meta">
@@ -366,8 +366,8 @@
         </div>
 
         <div class="projects-grid">
-          <!-- FEATURED: Dashboard embed -->
-          <article class="card project-wide">
+          <!-- Project 1 -->
+          <article class="card">
             <h3 class="project-title">Restaurant Sales Dashboard (Looker Studio)</h3>
             <p class="project-desc">
               I’ve built a Looker Studio dashboard to analyze restaurant sales at both the category and item level.
@@ -402,13 +402,17 @@
               </a>
             </div>
           </article>
-          <article class="card project-wide">
-  <h3 class="project-title">Electric Car Dashboard (Looker Studio)</h3>
 
-  <p class="project-desc">
-    I've built a Looker Studio dashboard to analyze electric vehicle adoption by state, highlighting Washington’s lead and manufacturer-level distribution with Tesla as the dominant brand.
+          <!-- Project 2 -->
+          <article class="card">
+            <h3 class="project-title">Electric Car Dashboard (Looker Studio)</h3>
 
-  <div class="tags">
+            <p class="project-desc">
+              I've built a Looker Studio dashboard to analyze electric vehicle adoption by state, highlighting
+              Washington’s lead and manufacturer-level distribution with Tesla as the dominant brand.
+            </p>
+
+            <div class="tags">
               <span class="tag">Looker Studio</span>
               <span class="tag">Data Analysis</span>
               <span class="tag">Big Query</span>
@@ -416,46 +420,46 @@
               <span class="tag">Excel</span>
               <span class="tag">Data Storage</span>
               <span class="tag">Google Cloud Console</span>
-  </div>
+            </div>
 
-  <div class="embed">
-    <iframe
-      src="https://lookerstudio.google.com/embed/reporting/9159e7e2-38f4-415c-8332-cdf016f1ee47/page/tEnnC"
-      title="Electric Car Dashboard"
-      loading="lazy"
-      allowfullscreen
-      referrerpolicy="strict-origin-when-cross-origin">
-    </iframe>
-  </div>
+            <div class="embed">
+              <iframe
+                src="https://lookerstudio.google.com/embed/reporting/9159e7e2-38f4-415c-8332-cdf016f1ee47/page/tEnnC"
+                title="Electric Car Dashboard"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
 
-  <div class="project-actions">
-    <a
-      class="btn"
-      target="_blank"
-      rel="noreferrer"
-      href="https://lookerstudio.google.com/reporting/9159e7e2-38f4-415c-8332-cdf016f1ee47/page/tEnnC"
-    >
-      Open Full Dashboard
-    </a>
-  </div>
-</article>
+            <div class="project-actions">
+              <a class="btn" target="_blank" rel="noreferrer"
+                 href="https://lookerstudio.google.com/reporting/9159e7e2-38f4-415c-8332-cdf016f1ee47/page/tEnnC">
+                Open Full Dashboard
+              </a>
+            </div>
+          </article>
 
-
-                <!-- TEMPLATE: Copy/paste this block to add more projects -->
+          <!-- TEMPLATE: Copy/paste this block to add more projects -->
           <!--
           <article class="card">
             <h3 class="project-title">Project Name</h3>
             <p class="project-desc">
               1–2 sentences: what you built, what it analyzes/automates, why it matters.
             </p>
+
             <div class="tags">
               <span class="tag">Tool 1</span>
               <span class="tag">Tool 2</span>
               <span class="tag">Tool 3</span>
             </div>
+
+            <div class="embed">
+              <iframe src="YOUR_EMBED_URL" title="Project Dashboard" loading="lazy" allowfullscreen></iframe>
+            </div>
+
             <div class="project-actions">
-              <a class="btn btn-small btn-ghost" href="https://link-to-demo" target="_blank" rel="noreferrer">Demo</a>
-              <a class="btn btn-small btn-ghost" href="https://link-to-code" target="_blank" rel="noreferrer">Code</a>
+              <a class="btn" target="_blank" rel="noreferrer" href="YOUR_PUBLIC_URL">Open Full Dashboard</a>
             </div>
           </article>
           -->
@@ -475,13 +479,12 @@
           <div class="card">
             <h3 style="margin:0 0 8px;">Analytics</h3>
             <ul class="bullets">
-  <li>Write and maintain SQL queries to join, clean, and analyze data</li>
-  <li>Build and track KPIs to monitor performance over time</li>
-  <li>Analyze trends and patterns to support decision-making</li>
-  <li>Validate data accuracy and catch inconsistencies before reporting</li>
-  <li>Translate analysis into clear visuals and summaries for stakeholders</li>
-</ul>
-
+              <li>Write and maintain SQL queries to join, clean, and analyze data</li>
+              <li>Build and track KPIs to monitor performance over time</li>
+              <li>Analyze trends and patterns to support decision-making</li>
+              <li>Validate data accuracy and catch inconsistencies before reporting</li>
+              <li>Translate analysis into clear visuals and summaries for stakeholders</li>
+            </ul>
           </div>
 
           <div class="card">
@@ -509,34 +512,32 @@
             I’m a data analyst focused on using SQL to transform data so that I can build clean, usable dashboards and reporting systems.
             I like work that’s structured, repeatable, and actually helps people make decisions.
           </p>
-          <p class="muted" style="margin:0;">
-            
-          </p>
+          <p class="muted" style="margin:0;"></p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-<section id="contact" class="section alt">
-  <div class="container">
-    <div class="section-head">
-      <h2>Contact</h2>
-      <p>Connect with me on LinkedIn.</p>
-    </div>
+    <section id="contact" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p>Connect with me on LinkedIn.</p>
+        </div>
 
-    <div class="card" style="text-align:center;">
-      <a
-        class="btn"
-        href="https://www.linkedin.com/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        View LinkedIn Profile
-      </a>
-    </div>
-  </div>
-</section>
-
+        <div class="card" style="text-align:center;">
+          <a
+            class="btn"
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View LinkedIn Profile
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div class="container footer">
@@ -546,45 +547,8 @@
   </footer>
 
   <script>
-    // year
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = String(new Date().getFullYear());
-
-    // copy email
-    const btn = document.getElementById("copyEmailBtn");
-    const emailLink = document.getElementById("emailLink");
-
-    if (btn && emailLink) {
-      btn.addEventListener("click", async () => {
-        const email = emailLink.textContent.trim();
-        try {
-          await navigator.clipboard.writeText(email);
-          btn.textContent = "Copied!";
-          setTimeout(() => (btn.textContent = "Copy Email"), 1200);
-        } catch {
-          window.location.href = `mailto:${email}`;
-        }
-      });
-    }
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
