@@ -10,17 +10,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    :root{
-      --bg:#0b0f19;
-      --panel:#111827;
-      --panel2:#0f172a;
-      --text:#e5e7eb;
-      --muted:#a1a1aa;
-      --accent:#60a5fa;
-      --border: rgba(255,255,255,0.10);
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
+  /* ABOUT section layout — centered */
+.about-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+/* Round, centered photo */
+.about-photo{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: block;
+}
+
 
     *{ box-sizing:border-box; }
     body{
@@ -400,6 +408,7 @@
 
 </body>
 </html>
+
 
 
 
