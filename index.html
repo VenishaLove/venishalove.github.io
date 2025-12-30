@@ -13,7 +13,7 @@
   <style>
     :root{
       /* Softer, lighter palette */
-      --bg-overlay: rgba(255,255,255,0.88);
+      --bg-overlay: rgba(255,255,255,0.82);
       --text:#1f2933;
       --muted:#6b7280;
       --accent:#3b82f6;
@@ -29,7 +29,7 @@
       line-height:1.55;
       color:var(--text);
 
-      /* Lighter overlay so the mountain shows through more */
+      /* Lighter overlay so the mountain background is visible */
       background:
         linear-gradient(to bottom, rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
         url("images/mountain-bg.jpg") center/cover no-repeat fixed;
@@ -109,7 +109,7 @@
     }
 
     .section.alt{
-      background:rgba(255,255,255,0.65); /* more see-through than before */
+      background:rgba(255,255,255,0.65); /* semi-transparent over bg image */
       border-top:1px solid var(--border);
       border-bottom:1px solid var(--border);
     }
@@ -207,7 +207,7 @@
       margin-top:12px;
     }
 
-    /* Two-column grids */
+    /* Two-column grids (About + Skills) */
     .grid-2{
       display:grid;
       grid-template-columns:repeat(2,1fr);
@@ -308,7 +308,7 @@
         <article class="card">
           <h3 class="project-title">Restaurant Sales Dashboard</h3>
           <p class="project-desc">
-            This dashboard shows sales at the category and item level to identify revenue drivers and where customer spending is concentrated.
+            This dashboard shows xcompany sales at the category and item level to identify revenue drivers and concentration of customer dollars spent.
           </p>
           <div class="tags">
             <span class="tag">Looker Studio</span>
@@ -336,7 +336,7 @@
         <article class="card">
           <h3 class="project-title">Electric Vehicle Adoption Dashboard</h3>
           <p class="project-desc">
-            State-level electric vehicle adoption analysis highlighting Washington’s lead in EV sales and the distribution across manufacturers.
+            This dashboard provides state-level electric vehicle adoption analysis. It highlights Washington’s lead in EV car sales along with showing car manufacturer distribution.
           </p>
           <div class="tags">
             <span class="tag">Looker Studio</span>
@@ -363,7 +363,7 @@
         <article class="card">
           <h3 class="project-title">STEM Graduates by Country (Annual)</h3>
           <p class="project-desc">
-            Annual STEM graduate output by country to compare global trends and highlight top-producing regions.
+            This dashboard shows annual STEM graduate output by country to compare global trends and top-producing regions.
           </p>
           <div class="tags">
             <span class="tag">Looker Studio</span>
@@ -390,7 +390,7 @@
         <article class="card">
           <h3 class="project-title">U.S Employment Stats</h3>
           <p class="project-desc">
-            Percentage of people ages 16+ employed, broken out by gender, alongside the U.S. unemployment rate for the same period.
+            This dashboard shows the percentage of people ages 16+ that are employed. It's disaggregated by gender. I've also shown the U.S. unemployment rate during the same time period.
           </p>
           <div class="tags">
             <span class="tag">Looker Studio</span>
@@ -417,7 +417,7 @@
         <article class="card">
           <h3 class="project-title">Restaurant KPI Dashboard</h3>
           <p class="project-desc">
-            Q1 food sales performance with monthly item volumes, category breakdowns, and pricing patterns to surface revenue opportunities.
+            This dashboard shows Q1 food sales performance. You're able to analyze monthly food items sold, food category breakdowns, and pricing patterns to show more revenue opportunities.
           </p>
           <div class="tags">
             <span class="tag">Looker Studio</span>
@@ -446,7 +446,7 @@
         <article class="card">
           <h3 class="project-title">Restaurant KPI Dashboard: Data Preparation & Key Takeaways</h3>
           <p class="project-desc">
-            End-to-end restaurant KPI analysis showing raw data preparation, SQL transformation, and key performance findings.
+            Here is my analytics workflow showing raw data preparation, SQL transformation, data visualization, and key performance findings through analysis of the data in the dashboard above.
           </p>
           <div class="tags">
             <span class="tag">Looker Studio</span>
