@@ -1,39 +1,535 @@
-<!-- ABOUT + SKILLS -->
-<section id="about-skills" class="section alt">
-  <div class="container">
-    <h2>About Me & Skills</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venisha Love | Data Analyst</title>
+  <meta name="description" content="Portfolio of Venisha Love — analytics workflows, reporting systems, and dashboards." />
 
-    <div class="grid-2">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-      <!-- ABOUT -->
-      <div class="card about-card">
-        <img
-          src="images/profile_pic.JPG"
-          alt="Photo of Venisha Love"
-          class="about-photo"
-        />
-        <p>
-          I’m a data analyst with over 3 years of experience using SQL to query and join
-          complex data to create meaningful reports for analysis. I work across data
-          preparation, analysis, and reporting to build dashboards and systems that help
-          people make decisions. Outside of work, I enjoy exploring new restaurants and
-          watching sports.
+  <style>
+    :root{
+      /* Softer, lighter palette */
+      --bg-overlay: rgba(255,255,255,0.82);
+      --text:#1f2933;
+      --muted:#6b7280;
+      --accent:#3b82f6;
+      --border: rgba(15,23,42,0.12);
+      --shadow: 0 12px 30px rgba(15,23,42,0.12);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      font-family: Inter, system-ui, sans-serif;
+      line-height:1.55;
+      color:var(--text);
+
+      /* Background image + soft white overlay */
+      background:
+        linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+        url("images/mountain-bg.jpg") center/cover no-repeat fixed;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .container{
+      width:min(1100px, 92%);
+      margin:auto;
+    }
+
+    header{
+      position:sticky; top:0;
+      z-index:50;
+      backdrop-filter: blur(12px);
+      background:rgba(255,255,255,0.8);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:12px 0;
+    }
+
+    .logo{
+      width:40px;height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      font-weight:700;
+      color:#1f2937;
+      background:rgba(255,255,255,0.9);
+      border:1px solid var(--border);
+      box-shadow:0 4px 10px rgba(15,23,42,0.08);
+    }
+
+    .nav-links{
+      list-style:none;
+      display:flex;
+      gap:16px;
+      padding:0;margin:0;
+      align-items:center;
+      font-size:0.95rem;
+    }
+
+    .nav-links a{
+      padding:6px 8px;
+      border-radius:999px;
+    }
+
+    .nav-links a:hover{
+      background:rgba(59,130,246,0.08);
+    }
+
+    .btn{
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid rgba(59,130,246,0.4);
+      background:rgba(59,130,246,0.08);
+      font-weight:600;
+      cursor:pointer;
+      font-size:0.95rem;
+      color:#1f2933;
+    }
+
+    .btn:hover{
+      background:rgba(59,130,246,0.18);
+    }
+
+    .section{
+      padding:56px 0;
+    }
+
+    .section.alt{
+      background:rgba(255,255,255,0.75);
+      border-top:1px solid var(--border);
+      border-bottom:1px solid var(--border);
+    }
+
+    .hero{
+      padding:72px 0 40px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.3fr .9fr;
+      gap:28px;
+    }
+
+    h1{
+      font-size:clamp(2.1rem, 4vw, 3rem);
+      margin:12px 0 10px;
+      color:#0f172a;
+    }
+
+    h2{
+      margin:0 0 18px;
+      color:#111827;
+    }
+
+    h3{
+      margin:0 0 10px;
+      color:#111827;
+    }
+
+    .accent{ color:var(--accent); }
+
+    .lead{
+      color:var(--muted);
+      max-width:620px;
+      margin-bottom:18px;
+    }
+
+    .card{
+      background:var(--bg-overlay);
+      border-radius:20px;
+      padding:20px 22px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    /* Portfolio cards */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+
+    .project-title{ margin:0 0 6px; }
+    .project-desc{ color:var(--muted); margin:0 0 10px; }
+
+    .tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:8px 0 0;
+      padding:0;
+      list-style:none;
+    }
+
+    .tag{
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,0.8);
+      font-size:.8rem;
+      color:var(--muted);
+    }
+
+    /* Responsive embeds */
+    .embed{
+      margin-top:14px;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#f4f4f5;
+    }
+
+    .embed iframe{
+      width:100%;
+      aspect-ratio:16/9;
+      min-height:260px;
+      max-height:380px;
+      border:0;
+      display:block;
+    }
+
+    .project-actions{
+      margin-top:12px;
+    }
+
+    /* Two-column grids */
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    ul{ padding-left:18px; }
+
+    /* About + photo */
+    .about-card{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:16px;
+    }
+
+    .about-photo{
+      width:160px;
+      height:160px;
+      object-fit:cover;
+      border-radius:50%;
+      border:2px solid var(--border);
+      box-shadow:0 10px 25px rgba(15,23,42,0.18);
+      display:block;
+    }
+
+    .about-card p{
+      margin:0;
+      color:var(--muted);
+      max-width: 820px;
+    }
+
+    footer{
+      padding:22px 0 28px;
+      color:var(--muted);
+      text-align:center;
+      font-size:0.9rem;
+    }
+
+    @media(max-width:900px){
+      .hero-grid{ grid-template-columns:1fr; }
+      .grid-2{ grid-template-columns:1fr; }
+      .embed iframe{
+        aspect-ratio:4/3;
+        min-height:260px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">VL</div>
+    <ul class="nav-links">
+      <li><a href="#projects">Portfolio</a></li>
+      <li><a href="#about-skills">About & Skills</a></li>
+      <li><a class="btn" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Hi, I’m <span class="accent">Venisha Love</span>.</h1>
+        <p class="lead">
+          I build analytics workflows that clean, process, analyze, and report data so people can make clear, confident decisions.
         </p>
+        <a class="btn" href="#projects">View Portfolio</a>
       </div>
 
-      <!-- SKILLS -->
       <div class="card">
-        <h3 style="margin-top:0;">Skills</h3>
+        <h3>What I do</h3>
         <ul style="margin:0;">
-          <li>SQL transformations, joins, and QA checks</li>
-          <li>Data cleaning and data validation</li>
-          <li>Data analysis and KPI monitoring</li>
-          <li>ETL fundamentals and reporting pipelines</li>
-          <li>Data warehousing, storage, and database management</li>
-          <li>Looker Studio dashboards and BigQuery analytics</li>
+          <li>Design analytics workflows from data preparation to reporting</li>
+          <li>Write SQL to clean, join, and analyze complex datasets</li>
+          <li>Build dashboards in Looker Studio for ongoing reporting</li>
+          <li>Deliver clear, decision-ready findings for stakeholders</li>
         </ul>
       </div>
-
     </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="projects" class="section alt">
+    <div class="container">
+      <h2>Portfolio</h2>
+
+      <div class="projects-grid">
+
+        <!-- 1 -->
+        <article class="card">
+          <h3 class="project-title">Restaurant Sales Dashboard</h3>
+          <p class="project-desc">
+            This dashboard shows sales at the category and item level to identify revenue drivers and where customer spending is concentrated.
+          </p>
+          <div class="tags">
+            <span class="tag">Looker Studio</span>
+            <span class="tag">SQL</span>
+            <span class="tag">BigQuery</span>
+          </div>
+          <div class="embed">
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC"
+              title="Restaurant Sales Dashboard"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+          <div class="project-actions">
+            <a class="btn" target="_blank" rel="noreferrer"
+               href="https://lookerstudio.google.com/reporting/f56bd994-dc16-4ea2-bc52-81baf6fd43d1/page/tEnnC">
+              Open Full Dashboard
+            </a>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card">
+          <h3 class="project-title">Electric Vehicle Adoption Dashboard</h3>
+          <p class="project-desc">
+            State-level electric vehicle adoption analysis highlighting Washington’s lead in EV sales and the distribution across manufacturers.
+          </p>
+          <div class="tags">
+            <span class="tag">Looker Studio</span>
+            <span class="tag">Analytics</span>
+          </div>
+          <div class="embed">
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/9159e7e2-38f4-415c-8332-cdf016f1ee47/page/tEnnC"
+              title="Electric Vehicle Adoption Dashboard"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+          <div class="project-actions">
+            <a class="btn" target="_blank" rel="noreferrer"
+               href="https://lookerstudio.google.com/reporting/9159e7e2-38f4-415c-8332-cdf016f1ee47/page/tEnnC">
+              Open Full Dashboard
+            </a>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card">
+          <h3 class="project-title">STEM Graduates by Country (Annual)</h3>
+          <p class="project-desc">
+            Annual STEM graduate output by country to compare global trends and highlight top-producing regions.
+          </p>
+          <div class="tags">
+            <span class="tag">Looker Studio</span>
+            <span class="tag">Data Visualization</span>
+          </div>
+          <div class="embed">
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/4a2c1843-ae65-43a6-a15b-fa19d8368c85/page/TlJ0C"
+              title="STEM Graduates by Country"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+          <div class="project-actions">
+            <a class="btn" target="_blank" rel="noreferrer"
+               href="https://lookerstudio.google.com/reporting/4a2c1843-ae65-43a6-a15b-fa19d8368c85/page/TlJ0C">
+              Open Full Dashboard
+            </a>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="card">
+          <h3 class="project-title">U.S Employment Stats</h3>
+          <p class="project-desc">
+            Percentage of people ages 16+ employed, broken out by gender, alongside the U.S. unemployment rate for the same period.
+          </p>
+          <div class="tags">
+            <span class="tag">Looker Studio</span>
+            <span class="tag">Analytics</span>
+          </div>
+          <div class="embed">
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/4f6793a0-fe88-4212-9964-3ace53972a6b/page/tEnnC"
+              title="U.S Employment Stats"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+          <div class="project-actions">
+            <a class="btn" target="_blank" rel="noreferrer"
+               href="https://lookerstudio.google.com/reporting/4f6793a0-fe88-4212-9964-3ace53972a6b/page/tEnnC">
+              Open Full Dashboard
+            </a>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="card">
+          <h3 class="project-title">Restaurant KPI Dashboard</h3>
+          <p class="project-desc">
+            Q1 food sales performance with monthly item volumes, category breakdowns, and pricing patterns to surface revenue opportunities.
+          </p>
+          <div class="tags">
+            <span class="tag">Looker Studio</span>
+            <span class="tag">SQL</span>
+            <span class="tag">BigQuery</span>
+            <span class="tag">Excel</span>
+          </div>
+          <div class="embed">
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_ybf6ejabzd"
+              title="Restaurant KPI Dashboard"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+          <div class="project-actions">
+            <a class="btn" target="_blank" rel="noreferrer"
+               href="https://lookerstudio.google.com/reporting/7812815b-bd4c-406e-9afc-c19233fa2df0/page/p_ybf6ejabzd">
+              Open Full Dashboard
+            </a>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="card">
+          <h3 class="project-title">Restaurant KPI Dashboard: Data Preparation & Key Takeaways</h3>
+          <p class="project-desc">
+            End-to-end restaurant KPI analysis showing raw data preparation, SQL transformation, and key performance findings.
+          </p>
+          <div class="tags">
+            <span class="tag">Looker Studio</span>
+            <span class="tag">SQL</span>
+            <span class="tag">BigQuery</span>
+            <span class="tag">Excel</span>
+          </div>
+          <div class="embed">
+            <iframe
+              src="https://lookerstudio.google.com/embed/reporting/b4804ac1-a0ed-4997-9c85-4173dbf7d432/page/8SdjF"
+              title="Restaurant KPI Data Prep & Key Takeaways"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
+          </div>
+          <div class="project-actions">
+            <a class="btn" target="_blank" rel="noreferrer"
+               href="https://lookerstudio.google.com/reporting/b4804ac1-a0ed-4997-9c85-4173dbf7d432/page/8SdjF">
+              Open Full Dashboard
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + SKILLS -->
+  <section id="about-skills" class="section">
+    <div class="container">
+      <h2>About Me & Skills</h2>
+
+      <div class="grid-2">
+
+        <!-- ABOUT -->
+        <div class="card about-card">
+          <img
+            src="images/profile_pic.JPG"
+            alt="Photo of Venisha Love"
+            class="about-photo"
+          />
+          <p>
+            I’m a data analyst with over 3 years of experience using SQL to query and join complex data to create meaningful reports for analysis.
+            I work across data preparation, analysis, and reporting to build dashboards and systems that help people make decisions.
+            Outside of work, I enjoy exploring new restaurants and watching sports.
+          </p>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="card">
+          <h3 style="margin-top:0;">Skills</h3>
+          <ul style="margin:0;">
+            <li>SQL transformations, joins, and QA checks</li>
+            <li>Data cleaning and data validation</li>
+            <li>Data analysis and KPI monitoring</li>
+            <li>ETL fundamentals and reporting pipelines</li>
+            <li>Data warehousing, storage, and database management</li>
+            <li>Looker Studio dashboards and BigQuery analytics</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section alt">
+    <div class="container" style="text-align:center;">
+      <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+        View LinkedIn Profile
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © <span id="year"></span> Venisha Love
   </div>
-</section>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
